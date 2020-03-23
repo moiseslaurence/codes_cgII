@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>03 IMG</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+        <script src='main.js'></script>
+    </head>
+
+    <body>
+        <canvas id="meu_canvas" width="400" height="400"> </canvas>
+        <script>
+            var canvas = document.getElementById("meu_canvas");
+            var context = canvas.getContext("2d");
+
+            var img = new Image();
+            img.src = 'img/vr-jogos.png';
+            img.onload = function(){
+                context.drawImage(
+                    img,
+                    0,0,100,100
+                );
+            }
+
+        </script>
+    </body>
+</html>

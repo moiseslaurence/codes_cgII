@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>01 Fundamentos</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+    <canvas id="meu" width="600" height="600"></canvas>
+
+    <script>
+        var canvas = document.getElementById('meu');
+        var context = canvas.getContext('2d');
+
+        var x = 20;
+        var y = 100;
+        var raio = 5;
+
+        requestAnimationFrame(mexerBola);
+
+        function mexerBola(){
+            // Limpar o Canvas
+            context.clearRect(0,0,canvas.width,canvas.height);
+
+            // Desenho 
+            context.beginPath();
+            context.arc(x,y,raio,0,Math.PI*2);
+            context.fill();
+
+            x += 20;
+
+            requestAnimationFrame(mexerBola);
+        }
+        
+    </script>
+</body>
+</html>
