@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Teclado</title>
+</head>
+<body>
+    <canvas id="meu_canvas" width="600" height="600"></canvas>
+
+    <script>
+        var canvas = document.getElementById("meu_canvas");
+        var context = canvas.getContext("2d");
+        var posicao = 10;
+
+        context.fillRect(posicao,100,20,50);
+
+        document.addEventListener('keydown',function(evento){
+            // 37 SETA PARA ESQUERDA <-
+            if(evento.keyCode == 37){
+                posicao -= 10;
+                desenharPersonagem();
+            }else if(evento.keyCode == 39){ //39 SETA PARA DIREITA ->
+                posicao += 10;
+                desenharPersonagem();
+            }
+        });
+
+        function desenharPersonagem(){
+            context.clearRect(0,0,canvas.width,canvas.height);
+            context.fillRect(posicao,100,20,50);
+        }
+    </script>
+</body>
+</html>

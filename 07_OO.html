@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>06 OO</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+    <!-- <canvas id="meu" width="600" height="600"></canvas> -->
+
+    <script>
+        function Carro(cor,velocMaxima){
+            this.cor = cor;
+            this.velocMaxima = velocMaxima;
+            this.velocAtual = 0;
+
+            this.acelerar = function(){
+                this.velocAtual += 10;
+            }
+        }
+
+        var carro1 = new Carro('red', 250);
+        var carro2 = new Carro('green', 250);
+
+        carro1.acelerar();
+
+        document.write(carro1.cor+' : '+carro1.velocAtual);
+        document.write('<br>');
+        document.write(carro2.cor+' : '+carro2.velocAtual);
+        </script>
+</body>
+</html>
