@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+   <title>Clipping</title>
+</head>
+
+<body>
+   <canvas id="meu_canvas" width="500" height="500"></canvas>
+   <script>
+      // var canvas = document.getElementById('meu_canvas');
+      // var context = canvas.getContext('2d');
+
+      var imgSonic = new Image();
+      imgSonic.src = 'img/spritsheet.png'
+      
+      imgSonic.onload = function(){
+
+         var linhas = 3;
+         var colunas = 8;
+
+         var largura = imgSonic.width / colunas;
+         var altura = imgSonic.width / linhas;
+
+         var queroLinha = 1; 
+         var queroColuna = 7;
+
+         var x = largura * queroColuna;
+         var y = altura * queroLinha;
+
+         var context = document.getElementById('meu_canvas').getContext('2d');
+         context.drawImage(
+            imgSonic,
+            x,
+            y,
+            largura,
+            altura,
+            100,
+            100,
+            largura,
+            altura
+         );
+      }
+
+   </script>
+</body>
+
+</html>
