@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="utf-8">
+   <title>Detecção de colisões</title>
+   <script src="colisor.js"></script>
+   <script src="bola.js"></script>
+</head>
+
+<body>
+   <canvas id="canvas_colisao" width="500" height="500"></canvas>
+   <script>
+      var canvas = document.getElementById('canvas_colisao');
+      var context = canvas.getContext('2d');
+
+    var b1 = new Bola(context);
+    b1.x = 200;
+    b1.y = 200;
+    b1.velocidadeX = 5;
+    b1.velocidadeY = -10;
+    b1.cor = 'red';
+    b1.raio = 50;
+    
+    var b2 = new Bola(context);
+    b2.x = 300;
+    b2.y = 300;
+    b2.velocidadeX = -5;
+    b2.velocidadeY = 10;
+    b2.cor = 'blue';
+    b2.raio = 40;
+    
+    var b3 = new Bola(context);
+    b3.x = 300;
+    b3.y = 300;
+    b3.velocidadeX = 30;
+    b3.velocidadeY = 30;
+    b3.cor = 'black';
+    b3.raio = 15;
+
+    var colisor = new Colisor();
+    colisor.novoSprite(b1);
+    colisor.novoSprite(b2);
+    colisor.novoSprite(b3);
+
+    requestAnimationFrame(animar);
+
+    function animar(){
+        // Limpar o Canvas
+        context.clearRect(0,0,canvas.width,canvas.height);
+
+        // Desenho 
+        b1.atualizar();
+        b2.atualizar();
+        b3.atualizar();
+
+        b1.desenhar();
+        b2.desenhar();
+        b3.desenhar();
+        
+        colisor.processar();
+
+        requestAnimationFrame(animar);
+    }
+
+   </script>
+   </body>
+</html>
